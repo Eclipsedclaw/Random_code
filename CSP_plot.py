@@ -3,21 +3,13 @@ import numpy as np
 
 # Data from the tables
 data = {
-    "0 pF": {
-        "shaping_time": [0.5, 1, 2, 3, 6, 10],
-        "FWHM": [20.33, 14.31, 12.39, 10.82, 11.39, 7.25]
-    },
-    "15 pF": {
-        "shaping_time": [0.5, 1, 2, 3, 6, 10],
-        "FWHM": [25.42, 18.36, 13.92, 14.8, 15.19, 12.51]
-    },
-    "30 pF": {
-        "shaping_time": [0.5, 1, 2, 3, 6, 10],
-        "FWHM": [31.76, 23.56, 19.76, 13.93, 14.60, 7.16]
-    },
-    "50 pF": {
+    "50 pF, Jan 28th": {
         "shaping_time": [0.5, 1, 2, 3, 6, 10],
         "FWHM": [44.62, 35.11, 24.18, 19.29, 12.95, 15.97]
+    },
+    "50 pF, Feb 2nd": {
+        "shaping_time": [0.5, 1, 2, 3, 6, 10],
+        "FWHM": [43.96, 31.23, 27.65, 16.33, 15.11, 6.53]
     #},
     #"Jon CSP v7.1": {
     #    "shaping_time": [0.5, 1, 2, 3, 6, 10],
@@ -50,6 +42,10 @@ for i, (label, dataset) in enumerate(data.items()):
                  capsize=5,
                  capthick=2,
                  label=label)
+
+# Add goal line
+plt.axhline(y=5, color='red', linestyle='--', linewidth=2, label='Goal (5 keV)')
+plt.text(0.2, 5.5, 'Goal (5 keV)', fontsize=10, color='red', fontweight='bold')
 
 # Customize the plot
 plt.xlabel('Shaping Time (μs)', fontsize=12, fontweight='bold')
