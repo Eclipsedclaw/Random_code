@@ -3,13 +3,29 @@ import numpy as np
 
 # Data from the tables
 data = {
-    "50 pF, Jan 28th": {
+    #"50 pF, Jan 28th": {
+    #    "shaping_time": [0.5, 1, 2, 3, 6, 10],
+    #    "FWHM": [44.62, 35.11, 24.18, 19.29, 12.95, 15.97]
+    #},
+    #"50 pF, Feb 2nd": {
+    #    "shaping_time": [0.5, 1, 2, 3, 6, 10],
+    #    "FWHM": [43.96, 31.23, 27.65, 16.33, 15.11, 6.53]
+    #},
+    #"50 pF, Feb 5th": {
+    #    "shaping_time": [0.5, 1, 2, 3, 6, 10],
+    #    "FWHM": [40.83, 32.01, 22.82, 22.40, 15.19, 14.00]
+    #},
+    "50pF, Feb 6th (CAEN)": {
         "shaping_time": [0.5, 1, 2, 3, 6, 10],
-        "FWHM": [44.62, 35.11, 24.18, 19.29, 12.95, 15.97]
+        "FWHM": [43.0285, 32.78136911, 25.48308422, 20.38188321, 15.65560856, 13.78507583]
     },
-    "50 pF, Feb 2nd": {
+    "50pF, Feb 7th (CAEN)": {
         "shaping_time": [0.5, 1, 2, 3, 6, 10],
-        "FWHM": [43.96, 31.23, 27.65, 16.33, 15.11, 6.53]
+        "FWHM": [43.57236448, 34.88707448, 25.3578849, 20.22486109, 16.20234782, 14.13665113]
+    },
+    "15pF, Feb 7th (CAEN)": {
+        "shaping_time": [0.5, 1, 2, 3, 6, 10],
+        "FWHM": [26.86000593, 18.90642341, 14.17350614, 12.99583987, 10.55817701, 9.22882636]
     #},
     #"Jon CSP v7.1": {
     #    "shaping_time": [0.5, 1, 2, 3, 6, 10],
@@ -51,15 +67,16 @@ plt.text(0.2, 5.5, 'Goal (5 keV)', fontsize=10, color='red', fontweight='bold')
 plt.xlabel('Shaping Time (μs)', fontsize=12, fontweight='bold')
 plt.ylabel('FWHM (keV)', fontsize=12, fontweight='bold')
 plt.title('FWHM vs Shaping Time for Different Capacitances', fontsize=14, fontweight='bold')
-plt.legend(title='Capacitance', fontsize=10, title_fontsize=11)
+plt.legend(title='CSP energy resolution', fontsize=10, title_fontsize=11)
 plt.grid(True, alpha=0.3, linestyle='--')
 
 # Set x-axis to show all shaping times
 plt.xticks([0.5, 1, 2, 3, 6, 10])
 plt.xlim(0, 11)
 
-# Make y-axis start from 0 for better visualization
-plt.ylim(0, max([max(d["FWHM"]) for d in data.values()]) * 1.1)
+# Make y-axis logarithmic from 1 to 100
+#plt.yscale('log')
+#plt.ylim(1, 100)
 
 # Add minor grid for better readability
 plt.minorticks_on()
