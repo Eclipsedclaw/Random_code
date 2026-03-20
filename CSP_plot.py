@@ -3,6 +3,22 @@ import numpy as np
 
 # Data from the tables
 data = {
+    "50pF dummy detector": {
+        "shaping_time": [0.5, 1, 2, 3, 6, 10],
+        "FWHM": [43.0285, 32.78136911, 25.48308422, 20.38188321, 15.65560856, 13.78507583]
+    },
+    "30pF dummy detector": {
+        "shaping_time": [0.5, 1, 2, 3, 6, 10],
+        "FWHM": [31.76, 23.56, 19.76, 13.93, 14.60, 7.16]
+    },
+    "15pF dummy detector": {
+        "shaping_time": [0.5, 1, 2, 3, 6, 10],
+        "FWHM": [26.86000593, 18.90642341, 14.17350614, 12.99583987, 10.55817701, 9.22882636]
+    },
+    "0pF dummy detector": {
+        "shaping_time": [0.5, 1, 2, 3, 6, 10],
+        "FWHM": [20.33, 14.31, 12.39, 10.82, 11.39, 7.25]
+    },
     #"50 pF, Jan 28th": {
     #    "shaping_time": [0.5, 1, 2, 3, 6, 10],
     #    "FWHM": [44.62, 35.11, 24.18, 19.29, 12.95, 15.97]
@@ -15,17 +31,10 @@ data = {
     #    "shaping_time": [0.5, 1, 2, 3, 6, 10],
     #    "FWHM": [40.83, 32.01, 22.82, 22.40, 15.19, 14.00]
     #},
-    "50pF, Feb 6th (CAEN)": {
+
+    "50pF dummy detector in cryo": {
         "shaping_time": [0.5, 1, 2, 3, 6, 10],
-        "FWHM": [43.0285, 32.78136911, 25.48308422, 20.38188321, 15.65560856, 13.78507583]
-    },
-    "50pF, Feb 7th (CAEN)": {
-        "shaping_time": [0.5, 1, 2, 3, 6, 10],
-        "FWHM": [43.57236448, 34.88707448, 25.3578849, 20.22486109, 16.20234782, 14.13665113]
-    },
-    "15pF, Feb 7th (CAEN)": {
-        "shaping_time": [0.5, 1, 2, 3, 6, 10],
-        "FWHM": [26.86000593, 18.90642341, 14.17350614, 12.99583987, 10.55817701, 9.22882636]
+        "FWHM": [7.90, 4.42, 4.07, 3.01, 1.77, 3.15]
     #},
     #"Jon CSP v7.1": {
     #    "shaping_time": [0.5, 1, 2, 3, 6, 10],
@@ -37,8 +46,8 @@ data = {
 plt.figure(figsize=(10, 7))
 
 # Colors for each curve
-colors = ['blue', 'green', 'red', 'purple']
-markers = ['o', 's', '^', 'D']
+colors = ['black', 'green', 'red', 'purple', 'blue']
+markers = ['o', 'o', 'o', 'o', 's']
 
 # Plot each dataset
 for i, (label, dataset) in enumerate(data.items()):
